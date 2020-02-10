@@ -13,9 +13,13 @@ from two1.bitcoin.utils import address_to_key_hash
 from two1.bitcoin.utils import rand_bytes
 from two1.crypto.ecdsa_base import Point
 from two1.crypto.ecdsa import ECPointAffine
-from two1.crypto.ecdsa import secp256k1
+try:
+    from two1.crypto import ecdsa_openssl as _ecdsa
+except:
+    from two1.crypto import ecdsa_python as _ecdsa
+secp256r1 = _ecdsa.p256
 
-bitcoin_curve = secp256k1()
+bitcoin_curve = secp256r1()
 
 from eth_utils import encode_hex
 
@@ -1321,7 +1325,7 @@ class HDPrivateKey(HDKey, PrivateKeyBase):
             HDPrivateKey: the master private key.
         """
         S = get_bytes(seed)
-        I = hmac.new(b"Bitcoin seed", S, hashlib.sha512).digest()
+        I = hmac.new(b"Nist256p1 seed", S, hashlib.sha512).digest()
         Il, Ir = I[:32], I[32:]
         parse_Il = int.from_bytes(Il, 'big')
         if parse_Il == 0 or parse_Il >= bitcoin_curve.n:

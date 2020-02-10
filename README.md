@@ -38,7 +38,7 @@ for i in range(10):
 ### Get Account XPUB
 ```
 master_key = HDPrivateKey.master_key_from_mnemonic('laundry snap patient survey sleep strategy finger bone real west arch protect')
-root_keys = HDKey.from_path(master_key,"m/44'/60'/0'")
+root_keys = HDKey.from_path(master_key,"m/44'/1642'/0'")
 acct_priv_key = root_keys[-1]
 acct_pub_key = acct_priv_key.public_key
 print('Account Master Public Key (Hex): ' + acct_pub_key.to_hex())
