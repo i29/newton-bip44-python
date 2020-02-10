@@ -1,4 +1,4 @@
-Ethereum BIP44 Python
+Newton BIP44 Python
 ================================
 
 *Code adapted from two1 library for bitcoin by 21 Inc. (https://github.com/21dotco/two1-python/tree/master/two1)
@@ -24,7 +24,7 @@ with seed phrase and get access to all the accounts under master key via Metamas
 ```
 from crypto import HDPrivateKey, HDKey
 master_key = HDPrivateKey.master_key_from_mnemonic('laundry snap patient survey sleep strategy finger bone real west arch protect')
-root_keys = HDKey.from_path(master_key,"m/44'/60'/0'")
+root_keys = HDKey.from_path(master_key,"m/44'/1642'/0'")
 acct_priv_key = root_keys[-1]
 for i in range(10):
     keys = HDKey.from_path(acct_priv_key,'{change}/{index}'.format(change=0, index=i))
