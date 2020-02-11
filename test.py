@@ -59,7 +59,7 @@ def test_generate_x_pub():
 
 
 def test_generate_address_from_xpub():
-    x_pub = "xpub6CRWprXA2tGMtCvHsbDjLGeHe896HQ8JXHyYyfcvFve7HqLbVSB4MGBDuaDgQVNaHDLWqLasaaJMcbS6TArdgnnMBsuy4yhYSmzWzSY8w9j";
+    x_pub = "xpub6CRWprXA2tGMtCvHsbDjLGeHe896HQ8JXHyYyfcvFve7HqLbVSB4MGBDuaDgQVNaHDLWqLasaaJMcbS6TArdgnnMBsuy4yhYSmzWzSY8w9j"
     x_pub_key = HDPublicKey.from_b58check(x_pub)
     keys = HDKey.from_path(x_pub_key, '{change}/{index}'.format(change=0, index=1))
     address = keys[-1].address()
